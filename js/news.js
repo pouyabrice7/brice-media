@@ -16,7 +16,7 @@ title:"Artificial Intelligence Is Changing The Future",
 description:
 "New AI technologies are transforming industries around the world.",
 
-image:"images/ai-news.jpg",
+image:"images/technology.jpg",
 
 date:"August 2026",
 
@@ -33,12 +33,12 @@ id:2,
 
 category:"Business",
 
-title:"Elon Musk Business Empire And Investments",
+title:"Global Business And Modern Economic Growth",
 
 description:
-"A look at companies and global business leaders.",
+"A look at companies, markets and global business leaders.",
 
-image:"images/business-news.jpg",
+image:"images/business.jpg",
 
 date:"August 2026",
 
@@ -60,7 +60,7 @@ title:"Latest Football And Sports Updates",
 description:
 "Breaking sports news from around the world.",
 
-image:"images/sports-news.jpg",
+image:"images/sports.jpg",
 
 date:"August 2026",
 
