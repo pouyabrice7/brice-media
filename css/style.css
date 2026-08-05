@@ -1161,3 +1161,53 @@ box-shadow:0 0 20px rgba(212,175,55,.25);
 color:#999;
 
 }
+
+/*=========================
+CATEGORY FILTER
+=========================*/
+
+.category-filter{
+
+padding:20px 0 40px;
+
+text-align:center;
+
+}
+
+.filter-btn{
+
+padding:12px 24px;
+
+margin:8px;
+
+border:none;
+
+border-radius:30px;
+
+background:#171717;
+
+color:#fff;
+
+cursor:pointer;
+
+font-size:16px;
+
+transition:.3s;
+
+}
+
+.filter-btn:hover{
+
+background:#d4af37;
+
+color:#111;
+
+}
+
+.filter-btn.active{
+
+background:#d4af37;
+
+color:#111;
+
+}
