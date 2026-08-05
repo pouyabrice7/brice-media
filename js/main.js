@@ -57,7 +57,7 @@ ${news.description}
 <br><br>
 
 
-<a href="#" class="btn">
+<a href="article.html?id=${news.id}" class="btn">
 Read More
 </a>
 
