@@ -337,3 +337,58 @@ background:var(--primary);
 color:#111;
 
 }
+
+/*====================================
+
+BREAKING NEWS
+
+====================================*/
+
+.breaking-news{
+
+padding:25px 0;
+
+}
+
+
+.breaking-box{
+
+display:flex;
+
+align-items:center;
+
+background:var(--card);
+
+border:1px solid var(--border);
+
+border-radius:var(--radius);
+
+overflow:hidden;
+
+}
+
+
+.breaking-title{
+
+background:var(--primary);
+
+color:#111;
+
+padding:15px 25px;
+
+font-weight:800;
+
+white-space:nowrap;
+
+}
+
+
+.breaking-text{
+
+padding:15px 25px;
+
+color:white;
+
+font-size:17px;
+
+}
