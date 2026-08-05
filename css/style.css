@@ -528,3 +528,60 @@ font-size:28px;
 
 
 }
+/*========================
+MOBILE FIX
+========================*/
+
+@media(max-width:900px){
+
+.container{
+    width:94%;
+}
+
+.hero-box{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+}
+
+.hero-image{
+    width:100%;
+}
+
+.hero-image img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+}
+
+.hero-content{
+    padding:25px;
+}
+
+.hero-content h1{
+    font-size:28px;
+}
+
+.breaking-box{
+    flex-direction:column;
+    align-items:stretch;
+}
+
+.breaking-title{
+    text-align:center;
+}
+
+.menu{
+    display:none;
+}
+
+.navbar{
+    height:auto;
+    padding:15px 0;
+}
+
+.logo{
+    font-size:25px;
+}
+
+}
