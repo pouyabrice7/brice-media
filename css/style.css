@@ -805,14 +805,13 @@ display:none;
 
 }
 
-
-}
 /* =========================
 MOBILE MENU
 ========================= */
 
 .menu-toggle{
 display:none;
+z-index:1001;
 }
 
 @media (max-width:900px){
@@ -821,26 +820,34 @@ display:none;
 display:flex;
 align-items:center;
 justify-content:center;
-width:60px;
-height:60px;
+width:58px;
+height:58px;
 background:#d4af37;
 color:#111;
 border:none;
-border-radius:18px;
-font-size:34px;
+border-radius:16px;
+font-size:32px;
 cursor:pointer;
+}
+
+.navbar{
+position:relative;
 }
 
 .menu{
 position:absolute;
-top:100%;
-left:0;
-width:100%;
-background:#111;
+top:75px;
+right:0;
+left:auto;
+width:260px;
+background:#171717;
+border:1px solid #2d2d2d;
+border-radius:18px;
+box-shadow:0 15px 35px rgba(0,0,0,.45);
 display:none;
 flex-direction:column;
-padding:15px 0;
-border-top:1px solid #222;
+padding:10px 0;
+z-index:1000;
 }
 
 .menu.active{
@@ -853,14 +860,21 @@ width:100%;
 
 .menu a{
 display:block;
-padding:16px 25px;
-font-size:18px;
-border-bottom:1px solid #222;
+padding:14px 22px;
+font-size:17px;
+font-weight:500;
+border-bottom:1px solid #2a2a2a;
+}
+
+.menu li:last-child a{
+border-bottom:none;
 }
 
 .menu a:hover{
-background:#1b1b1b;
-color:#d4af37;
+background:#d4af37;
+color:#111;
+padding-right:30px;
+transition:.3s;
 }
 
 .header-buttons{
