@@ -87,3 +87,14 @@ menuToggle.addEventListener("click",()=>{
 menu.classList.toggle("active");
 
 });
+
+document.addEventListener("click", function(e){
+
+if(
+!menu.contains(e.target) &&
+!menuToggle.contains(e.target)
+){
+menu.classList.remove("active");
+}
+
+});
