@@ -12,6 +12,23 @@ if(article){
 
 document.title = article.title + " | Brice Media";
 
+  // OPEN GRAPH SEO
+
+document.querySelector('meta[property="og:title"]')
+.setAttribute("content", article.title + " | Brice Media");
+
+
+document.querySelector('meta[property="og:description"]')
+.setAttribute("content", article.description);
+
+
+document.querySelector('meta[property="og:image"]')
+.setAttribute("content", article.image);
+
+
+document.querySelector('meta[property="og:url"]')
+.setAttribute("content", window.location.href);
+
 document.getElementById("article-image").src = article.image;
 
 document.getElementById("article-image").alt = article.title;
