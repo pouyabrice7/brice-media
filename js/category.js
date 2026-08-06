@@ -1,4 +1,4 @@
-const container = document.getElementById("news-container");
+console.log(newsData);
 
 if(container){
 
