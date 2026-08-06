@@ -33,7 +33,7 @@ document.getElementById("article-content").innerHTML = `
 <p>${article.description}</p>
 
 <p>
-Artificial Intelligence, Business, Sports and Technology continue to shape the future of our world. Brice Media brings reliable news, exclusive stories and global updates with a modern reading experience.
+${article.content}
 </p>
 
 <p>
