@@ -149,35 +149,45 @@ button.addEventListener("click", function(){
 const category = this.dataset.category;
 
 
-// تغییر حالت فعال دکمه‌ها
+/*====================================
+CATEGORY FILTER
+====================================*/
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+
+filterButtons.forEach(button => {
+
+button.addEventListener("click",()=>{
+
+
+let category = button.dataset.category;
+
 
 filterButtons.forEach(btn=>{
 btn.classList.remove("active");
 });
 
 
-this.classList.add("active");
-
+button.classList.add("active");
 
 
 const cards = document.querySelectorAll(".news-card");
 
 
-
 cards.forEach(card=>{
 
 
-const cardCategory = card.querySelector("span").innerText;
+let cardCategory = card.querySelector("span").innerText.trim();
 
 
+if(category === "all" || cardCategory.toLowerCase() === category.toLowerCase()){
 
-if(category === "all" || cardCategory === category){
-
-card.style.display = "block";
+card.style.display="block";
 
 }else{
 
-card.style.display = "none";
+card.style.display="none";
 
 }
 
