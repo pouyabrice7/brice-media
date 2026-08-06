@@ -148,46 +148,55 @@ button.addEventListener("click", function(){
 
 const category = this.dataset.category;
 
-
 /*====================================
 CATEGORY FILTER
 ====================================*/
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 
+const newsCards = document.querySelectorAll(".news-card");
+
 
 filterButtons.forEach(button => {
 
-button.addEventListener("click",()=>{
+button.addEventListener("click", function(){
 
 
-let category = button.dataset.category;
+const category = this.dataset.category;
 
+
+// active button
 
 filterButtons.forEach(btn=>{
 btn.classList.remove("active");
 });
 
-
-button.classList.add("active");
-
-
-const cards = document.querySelectorAll(".news-card");
+this.classList.add("active");
 
 
-cards.forEach(card=>{
+
+newsCards.forEach(card=>{
 
 
-let cardCategory = card.querySelector("span").innerText.trim();
+const cardCategory = card.querySelector("span").textContent.trim();
 
 
-if(category === "all" || cardCategory.toLowerCase() === category.toLowerCase()){
 
-card.style.display="block";
+if(category === "all"){
 
-}else{
+card.style.display = "block";
 
-card.style.display="none";
+}
+
+else if(cardCategory.toLowerCase() === category.toLowerCase()){
+
+card.style.display = "block";
+
+}
+
+else{
+
+card.style.display = "none";
 
 }
 
@@ -198,4 +207,4 @@ card.style.display="none";
 });
 
 
-});
+});                     
