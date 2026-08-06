@@ -145,3 +145,77 @@ font-size:14px;
 }
 
 }
+
+/*========================
+SHARE BUTTONS
+========================*/
+
+.share-box{
+
+margin:40px 0;
+
+padding:25px;
+
+background:#171717;
+
+border-radius:20px;
+
+border:1px solid #2d2d2d;
+
+}
+
+
+.share-box h3{
+
+color:white;
+
+margin-bottom:20px;
+
+}
+
+
+.share-icons{
+
+display:flex;
+
+gap:15px;
+
+}
+
+
+.share-icons a{
+
+width:50px;
+
+height:50px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:#222;
+
+color:white;
+
+border-radius:50%;
+
+font-size:24px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+
+.share-icons a:hover{
+
+background:#d4af37;
+
+color:#111;
+
+transform:translateY(-5px);
+
+}
