@@ -132,3 +132,60 @@ card.style.display="none";
 });
 
 }
+
+/*====================================
+CATEGORY FILTER
+====================================*/
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+
+
+filterButtons.forEach(button => {
+
+
+button.addEventListener("click", function(){
+
+
+const category = this.dataset.category;
+
+
+// تغییر حالت فعال دکمه‌ها
+
+filterButtons.forEach(btn=>{
+btn.classList.remove("active");
+});
+
+
+this.classList.add("active");
+
+
+
+const cards = document.querySelectorAll(".news-card");
+
+
+
+cards.forEach(card=>{
+
+
+const cardCategory = card.querySelector("span").innerText;
+
+
+
+if(category === "all" || cardCategory === category){
+
+card.style.display = "block";
+
+}else{
+
+card.style.display = "none";
+
+}
+
+
+});
+
+
+});
+
+
+});
