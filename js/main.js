@@ -138,29 +138,12 @@ CATEGORY FILTER
 ====================================*/
 
 const filterButtons = document.querySelectorAll(".filter-btn");
-
-
-filterButtons.forEach(button => {
-
-
-button.addEventListener("click", function(){
-
-
-const category = this.dataset.category;
-
-/*====================================
-CATEGORY FILTER
-====================================*/
-
-const filterButtons = document.querySelectorAll(".filter-btn");
-
 const newsCards = document.querySelectorAll(".news-card");
 
 
 filterButtons.forEach(button => {
 
 button.addEventListener("click", function(){
-
 
 const category = this.dataset.category;
 
@@ -170,6 +153,7 @@ const category = this.dataset.category;
 filterButtons.forEach(btn=>{
 btn.classList.remove("active");
 });
+
 
 this.classList.add("active");
 
@@ -184,19 +168,19 @@ const cardCategory = card.querySelector("span").textContent.trim();
 
 if(category === "all"){
 
-card.style.display = "block";
+card.style.display="block";
 
 }
 
 else if(cardCategory.toLowerCase() === category.toLowerCase()){
 
-card.style.display = "block";
+card.style.display="block";
 
 }
 
 else{
 
-card.style.display = "none";
+card.style.display="none";
 
 }
 
@@ -206,5 +190,4 @@ card.style.display = "none";
 
 });
 
-
-});                     
+});
