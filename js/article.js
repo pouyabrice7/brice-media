@@ -59,3 +59,52 @@ Back Home
 `;
 
 }
+
+/*========================
+SHARE ARTICLE
+========================*/
+
+
+const pageUrl = window.location.href;
+
+
+const telegramBtn = document.getElementById("telegram-share");
+
+const whatsappBtn = document.getElementById("whatsapp-share");
+
+const copyBtn = document.getElementById("copy-link");
+
+
+
+if(telegramBtn){
+
+telegramBtn.href =
+`https://t.me/share/url?url=${pageUrl}&text=${article.title}`;
+
+}
+
+
+
+if(whatsappBtn){
+
+whatsappBtn.href =
+`https://wa.me/?text=${article.title} ${pageUrl}`;
+
+}
+
+
+
+if(copyBtn){
+
+copyBtn.addEventListener("click",()=>{
+
+
+navigator.clipboard.writeText(pageUrl);
+
+
+alert("Link copied!");
+
+});
+
+
+}
