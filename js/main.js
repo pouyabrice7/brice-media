@@ -5,7 +5,7 @@ AUTO NEWS RENDER SYSTEM
 
 
 const newsContainer = document.getElementById("news-container");
-
+console.log(newsData);
 
 if(newsContainer){
 
