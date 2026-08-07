@@ -70,9 +70,9 @@ date:"August 2026",
 author:"Brice Media",
 views:"30K",
 content:"Global companies are expanding worldwide."
-}
+},
 
-  {
+{
 id:7,
 category:"Technology",
 title:"OpenAI Introduces New AI Model",
@@ -312,7 +312,7 @@ views:"23K",
 content:"AI is expected to transform transportation, security and energy systems."
 },
 
-  {
+{
 id:27,
 category:"Technology",
 title:"Huawei Unveils Next-Generation AI Chips",
