@@ -1,3 +1,4 @@
+alert("category.js loaded");
 console.log(newsData);
 
 if(container){
