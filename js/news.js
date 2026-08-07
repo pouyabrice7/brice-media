@@ -190,7 +190,7 @@ date:"August 2026",
 author:"Brice Media",
 views:"28K",
 content:"SpaceX continues preparing for future missions."
-}
+},
 
 {
 id:17,
