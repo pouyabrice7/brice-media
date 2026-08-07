@@ -1,8 +1,7 @@
 const container = document.getElementById("news-container");
 
-alert("category.js loaded");
-
-console.log(newsData);
+alert("category loaded");
+alert(typeof newsData);
 
 
 if(container){
