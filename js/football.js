@@ -118,7 +118,7 @@ date:"August 2026",
 author:"Brice Media",
 views:"40K",
 content:"Technology continues changing how football matches are played, analyzed and managed."
-}
+},
 
 ];
 
