@@ -153,3 +153,19 @@ ${news.description}
 
 
 <br><br>
+<a href="../article.html?id=${news.id}" class="btn">
+Read More
+</a>
+
+
+</div>
+
+
+</div>
+
+`;
+
+});
+
+
+}
