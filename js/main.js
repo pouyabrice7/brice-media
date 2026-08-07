@@ -10,7 +10,7 @@ console.log(newsData);
 if(newsContainer){
 
 
-newsData.forEach(news => {
+newsData.filter(news => news.id !== 1).forEach(news => {
 
 
 const newsCard = document.createElement("div");
