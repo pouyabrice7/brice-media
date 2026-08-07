@@ -9,7 +9,6 @@ footballNews.forEach(news=>{
 
 footballContainer.innerHTML += `
 
-
 <div class="news-card">
 
 
@@ -55,7 +54,6 @@ Read More
 
 
 </div>
-
 
 `;
 
