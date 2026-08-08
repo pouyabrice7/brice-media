@@ -1,61 +1,74 @@
-/*====================================
-FOOTBALL CATEGORY PAGE
-BRICE MEDIA
-====================================*/
+const footballContainer = document.getElementById("football-container");
 
-const footballContainer =
-    document.getElementById("football-container");
 
-if (footballContainer && typeof footballNews !== "undefined") {
+if(footballContainer && typeof footballNews !== "undefined"){
 
-    footballNews.forEach(news => {
 
-        footballContainer.innerHTML += `
+footballNews.forEach(news => {
 
-        <div class="news-card">
 
-            <img
-                src="${news.image}"
-                alt="${news.title}"
-            >
+footballContainer.innerHTML += `
 
-            <div class="news-content">
 
-                <span>
-                    ${news.category}
-                </span>
+<div class="news-card">
 
-                <h3>
-                    ${news.title}
-                </h3>
 
-                <p>
-                    ${news.description}
-                </p>
+<img src="${news.image}" alt="${news.title}">
 
-                <small>
-                    📅 ${news.date}
-                    &nbsp;&nbsp;
-                    ✍ ${news.author}
-                    &nbsp;&nbsp;
-                    👁 ${news.views}
-                </small>
 
-                <br><br>
+<div class="news-content">
 
-                <a
-                    href="../article.html?id=${news.id}"
-                    class="btn"
-                >
-                    Read More
-                </a>
 
-            </div>
+<span>
+${news.category}
+</span>
 
-        </div>
 
-        `;
+<h3>
+${news.title}
+</h3>
 
-    });
+
+<p>
+${news.description}
+</p>
+
+
+<small>
+
+📅 ${news.date}
+
+&nbsp;
+
+✍ ${news.author}
+
+&nbsp;
+
+👁 ${news.views}
+
+</small>
+
+
+<br><br>
+
+
+<a href="../article.html?id=${news.id}" class="btn">
+
+Read More
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
 
 }
