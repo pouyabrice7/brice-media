@@ -12,6 +12,7 @@ views:"95K",
 content:"Cristiano Ronaldo continues his legendary football career, inspiring millions of fans around the world with his dedication, goals and achievements."
 },
 
+
 {
 id:2,
 category:"Football",
@@ -23,6 +24,7 @@ author:"Brice Media",
 views:"92K",
 content:"Lionel Messi remains one of football's greatest players, continuing to create unforgettable moments on the pitch."
 },
+
 
 {
 id:3,
@@ -36,6 +38,7 @@ views:"120K",
 content:"For more than a decade, Ronaldo and Messi pushed each other to new levels and created one of the greatest rivalries in sports history."
 },
 
+
 {
 id:4,
 category:"Football",
@@ -47,6 +50,7 @@ author:"Brice Media",
 views:"75K",
 content:"Kylian Mbappe is considered one of the most talented footballers of his generation."
 },
+
 
 {
 id:5,
@@ -60,6 +64,7 @@ views:"80K",
 content:"Erling Haaland continues dominating defenders with his power, speed and finishing ability."
 },
 
+
 {
 id:6,
 category:"Football",
@@ -71,6 +76,7 @@ author:"Brice Media",
 views:"70K",
 content:"The Champions League remains one of the most watched football competitions worldwide."
 },
+
 
 {
 id:7,
@@ -84,6 +90,7 @@ views:"110K",
 content:"The FIFA World Cup brings together the best teams and players from around the world."
 },
 
+
 {
 id:8,
 category:"Football",
@@ -96,6 +103,7 @@ views:"65K",
 content:"Transfer news remains one of the most popular topics among football fans."
 },
 
+
 {
 id:9,
 category:"Football",
@@ -107,6 +115,7 @@ author:"Brice Media",
 views:"45K",
 content:"The next generation of players is preparing to become future football legends."
 },
+
 
 {
 id:10,
@@ -123,64 +132,69 @@ content:"Technology continues changing how football matches are played, analyzed
 ];
 
 
-// =====================================
-// FOOTBALL NEWS RENDER
-// =====================================
-
-const footballContainer =
-document.getElementById("football-container");
+const footballContainer = document.getElementById("football-container");
 
 
-if (footballContainer) {
+if(footballContainer){
 
-    footballNews.forEach(news => {
 
-        footballContainer.innerHTML += `
+footballNews.forEach(news=>{
 
-        <article class="news-card">
 
-            <img
-                src="${news.image}"
-                alt="${news.title}"
-            >
+footballContainer.innerHTML += `
 
-            <div class="news-content">
 
-                <span>
-                    ${news.category}
-                </span>
+<div class="news-card">
 
-                <h3>
-                    ${news.title}
-                </h3>
 
-                <p>
-                    ${news.description}
-                </p>
+<img src="${news.image}" alt="${news.title}">
 
-                <small>
-                    📅 ${news.date}
-                    &nbsp;&nbsp;
-                    ✍ ${news.author}
-                    &nbsp;&nbsp;
-                    👁 ${news.views}
-                </small>
 
-                <br><br>
+<div class="news-content">
 
-                <a
-                    href="../article.html?id=${news.id}"
-                    class="btn"
-                >
-                    Read More
-                </a>
 
-            </div>
+<span>
+${news.category}
+</span>
 
-        </article>
 
-        `;
+<h3>
+${news.title}
+</h3>
 
-    });
+
+<p>
+${news.description}
+</p>
+
+
+<small>
+📅 ${news.date}
+&nbsp;
+✍ ${news.author}
+&nbsp;
+👁 ${news.views}
+</small>
+
+
+<br><br>
+
+
+<a href="../article.html?id=${news.id}" class="btn">
+Read More
+</a>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+});
+
 
 }
