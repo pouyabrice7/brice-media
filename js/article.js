@@ -9,18 +9,11 @@ const articleId = Number(params.get("id"));
 const allNews = [
 ...newsData,
 ...technologyNews,
-...footballNews,
-...sportsNews,
-...businessNews,
-...celebritiesNews,
-...aiNews,
-...hollywoodNews,
-...bollywoodNews,
-...worldNews,
-...cryptoNews,
-...scienceNews,
-...healthNews
+...footballNews
 ];
+
+
+const article = allNews.find(item => item.id === articleId);
 
 
 const article = allNews.find(item => item.id === articleId);
