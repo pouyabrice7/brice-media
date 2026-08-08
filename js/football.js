@@ -1,3 +1,5 @@
+alert("football page works");
+
 const footballNews = [
 
 {
