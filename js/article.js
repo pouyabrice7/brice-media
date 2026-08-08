@@ -1,137 +1,506 @@
 /*====================================
-ARTICLE PAGE
+BRICE MEDIA
+ARTICLE SYSTEM
+====================================*/
+
+
+/*====================================
+GET ARTICLE ID
 ====================================*/
 
 const params = new URLSearchParams(window.location.search);
 
 const articleId = Number(params.get("id"));
 
-const allNews = [
-...newsData,
-...technologyNews,
-...footballNews
-];
+
+/*====================================
+ALL NEWS DATABASES
+====================================*/
+
+const allNewsSources = {
+
+    technology: typeof technologyNews !== "undefined"
+        ? technologyNews
+        : [],
+
+    ai: typeof aiNews !== "undefined"
+        ? aiNews
+        : [],
+
+    football: typeof footballNews !== "undefined"
+        ? footballNews
+        : [],
+
+    sports: typeof sportsNews !== "undefined"
+        ? sportsNews
+        : [],
+
+    business: typeof businessNews !== "undefined"
+        ? businessNews
+        : [],
+
+    celebrities: typeof celebritiesNews !== "undefined"
+        ? celebritiesNews
+        : [],
+
+    hollywood: typeof hollywoodNews !== "undefined"
+        ? hollywoodNews
+        : [],
+
+    bollywood: typeof bollywoodNews !== "undefined"
+        ? bollywoodNews
+        : [],
+
+    world: typeof worldNews !== "undefined"
+        ? worldNews
+        : [],
+
+    crypto: typeof cryptoNews !== "undefined"
+        ? cryptoNews
+        : [],
+
+    science: typeof scienceNews !== "undefined"
+        ? scienceNews
+        : [],
+
+    health: typeof healthNews !== "undefined"
+        ? healthNews
+        : [],
+
+    home: typeof newsData !== "undefined"
+        ? newsData
+        : []
+
+};
 
 
-const article = allNews.find(item => item.id === articleId);
+/*====================================
+DETECT CATEGORY
+====================================*/
 
+function detectCategory() {
 
-const article = allNews.find(item => item.id === articleId);
+    const referrer = document.referrer.toLowerCase();
 
-if(article){
+    if (referrer.includes("/football.html"))
+        return "football";
 
-document.title = article.title + " | Brice Media";
+    if (referrer.includes("/technology.html"))
+        return "technology";
 
-  // OPEN GRAPH SEO
+    if (referrer.includes("/ai.html"))
+        return "ai";
 
-document.querySelector('meta[property="og:title"]')
-.setAttribute("content", article.title + " | Brice Media");
+    if (referrer.includes("/sports.html"))
+        return "sports";
 
+    if (referrer.includes("/business.html"))
+        return "business";
 
-document.querySelector('meta[property="og:description"]')
-.setAttribute("content", article.description);
+    if (referrer.includes("/celebrities.html"))
+        return "celebrities";
 
+    if (referrer.includes("/hollywood.html"))
+        return "hollywood";
 
-document.querySelector('meta[property="og:image"]')
-.setAttribute("content", article.image);
+    if (referrer.includes("/bollywood.html"))
+        return "bollywood";
 
+    if (referrer.includes("/world.html"))
+        return "world";
 
-document.querySelector('meta[property="og:url"]')
-.setAttribute("content", window.location.href);
+    if (referrer.includes("/crypto.html"))
+        return "crypto";
 
-document.getElementById("article-image").src = article.image;
+    if (referrer.includes("/science.html"))
+        return "science";
 
-document.getElementById("article-image").alt = article.title;
+    if (referrer.includes("/health.html"))
+        return "health";
 
-document.getElementById("article-category").textContent = article.category;
-
-document.getElementById("article-title").textContent = article.title;
-
-document.getElementById("article-date").textContent = article.date;
-
-document.getElementById("article-author").textContent =
-"By " + article.author;
-
-document.getElementById("article-views").textContent =
-article.views + " Views";
-
-document.getElementById("article-content").innerHTML = `
-
-<p>${article.description}</p>
-
-<p>
-${article.content}
-</p>
-
-<p>
-Stay connected with Brice Media for the latest developments from around the world.
-</p>
-
-`;
-
-}else{
-
-document.querySelector(".article-page").innerHTML = `
-
-<div class="container">
-
-<h1>Article Not Found</h1>
-
-<a href="index.html" class="btn">
-Back Home
-</a>
-
-</div>
-
-`;
+    return "home";
 
 }
 
-/*========================
+
+/*====================================
+FIND ARTICLE
+====================================*/
+
+const detectedCategory = detectCategory();
+
+let article = null;
+
+
+/*
+اول از همان دسته‌ای که کاربر از آن وارد شده
+خبر را پیدا می‌کنیم.
+*/
+
+if (allNewsSources[detectedCategory]) {
+
+    article = allNewsSources[detectedCategory].find(
+        item => Number(item.id) === articleId
+    );
+
+}
+
+
+/*
+اگر پیدا نشد، در تمام دسته‌ها جستجو می‌کنیم.
+*/
+
+if (!article) {
+
+    for (const category in allNewsSources) {
+
+        const source = allNewsSources[category];
+
+        const found = source.find(
+            item => Number(item.id) === articleId
+        );
+
+        if (found) {
+
+            article = found;
+
+            break;
+
+        }
+
+    }
+
+}
+
+
+/*====================================
+ARTICLE NOT FOUND
+====================================*/
+
+const articlePage = document.querySelector(".article-page");
+
+
+if (!article) {
+
+    if (articlePage) {
+
+        articlePage.innerHTML = `
+
+        <div class="container">
+
+            <h1>Article Not Found</h1>
+
+            <p>
+            Sorry, this article could not be found.
+            </p>
+
+            <a href="index.html" class="btn">
+            ← Back To Home
+            </a>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/*====================================
+DISPLAY ARTICLE
+====================================*/
+
+if (article) {
+
+
+    /*================================
+    PAGE TITLE
+    =================================*/
+
+    document.title =
+        article.title + " | Brice Media";
+
+
+    /*================================
+    OPEN GRAPH
+    =================================*/
+
+    const ogTitle =
+        document.querySelector('meta[property="og:title"]');
+
+    const ogDescription =
+        document.querySelector('meta[property="og:description"]');
+
+    const ogImage =
+        document.querySelector('meta[property="og:image"]');
+
+    const ogUrl =
+        document.querySelector('meta[property="og:url"]');
+
+
+    if (ogTitle) {
+
+        ogTitle.setAttribute(
+            "content",
+            article.title + " | Brice Media"
+        );
+
+    }
+
+
+    if (ogDescription) {
+
+        ogDescription.setAttribute(
+            "content",
+            article.description || ""
+        );
+
+    }
+
+
+    if (ogImage) {
+
+        ogImage.setAttribute(
+            "content",
+            article.image || ""
+        );
+
+    }
+
+
+    if (ogUrl) {
+
+        ogUrl.setAttribute(
+            "content",
+            window.location.href
+        );
+
+    }
+
+
+    /*================================
+    ARTICLE IMAGE
+    =================================*/
+
+    const articleImage =
+        document.getElementById("article-image");
+
+
+    if (articleImage) {
+
+        articleImage.src = article.image || "";
+
+        articleImage.alt =
+            article.title || "Brice Media";
+
+    }
+
+
+    /*================================
+    CATEGORY
+    =================================*/
+
+    const articleCategory =
+        document.getElementById("article-category");
+
+
+    if (articleCategory) {
+
+        articleCategory.textContent =
+            article.category || "";
+
+    }
+
+
+    /*================================
+    TITLE
+    =================================*/
+
+    const articleTitle =
+        document.getElementById("article-title");
+
+
+    if (articleTitle) {
+
+        articleTitle.textContent =
+            article.title || "";
+
+    }
+
+
+    /*================================
+    DATE
+    =================================*/
+
+    const articleDate =
+        document.getElementById("article-date");
+
+
+    if (articleDate) {
+
+        articleDate.textContent =
+            article.date || "";
+
+    }
+
+
+    /*================================
+    AUTHOR
+    =================================*/
+
+    const articleAuthor =
+        document.getElementById("article-author");
+
+
+    if (articleAuthor) {
+
+        articleAuthor.textContent =
+            "By " + (article.author || "Brice Media");
+
+    }
+
+
+    /*================================
+    VIEWS
+    =================================*/
+
+    const articleViews =
+        document.getElementById("article-views");
+
+
+    if (articleViews) {
+
+        articleViews.textContent =
+            (article.views || "") + " Views";
+
+    }
+
+
+    /*================================
+    ARTICLE CONTENT
+    =================================*/
+
+    const articleContent =
+        document.getElementById("article-content");
+
+
+    if (articleContent) {
+
+        articleContent.innerHTML = `
+
+        <p>
+        ${article.description || ""}
+        </p>
+
+        <p>
+        ${article.content || ""}
+        </p>
+
+        <p>
+        Stay connected with Brice Media for the latest
+        developments from around the world.
+        </p>
+
+        `;
+
+    }
+
+}
+
+
+/*====================================
 SHARE ARTICLE
-========================*/
+====================================*/
+
+if (article) {
 
 
-const pageUrl = window.location.href;
+    const pageUrl =
+        window.location.href;
 
 
-const telegramBtn = document.getElementById("telegram-share");
-
-const whatsappBtn = document.getElementById("whatsapp-share");
-
-const copyBtn = document.getElementById("copy-link");
+    const encodedUrl =
+        encodeURIComponent(pageUrl);
 
 
+    const encodedTitle =
+        encodeURIComponent(article.title || "Brice Media");
 
-if(telegramBtn){
 
-telegramBtn.href =
-`https://t.me/share/url?url=${pageUrl}&text=${article.title}`;
+    /*================================
+    TELEGRAM
+    =================================*/
+
+    const telegramBtn =
+        document.getElementById("telegram-share");
+
+
+    if (telegramBtn) {
+
+        telegramBtn.href =
+            `https://t.me/share/url?url=${encodedUrl}&text=${encodedTitle}`;
+
+    }
+
+
+    /*================================
+    WHATSAPP
+    =================================*/
+
+    const whatsappBtn =
+        document.getElementById("whatsapp-share");
+
+
+    if (whatsappBtn) {
+
+        whatsappBtn.href =
+            `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`;
+
+    }
+
+
+    /*================================
+    COPY LINK
+    =================================*/
+
+    const copyBtn =
+        document.getElementById("copy-link");
+
+
+    if (copyBtn) {
+
+        copyBtn.addEventListener("click", async function () {
+
+            try {
+
+                await navigator.clipboard.writeText(pageUrl);
+
+                alert("Link copied!");
+
+            } catch (error) {
+
+                alert("Could not copy the link.");
+
+            }
+
+        });
+
+    }
 
 }
 
 
+/*====================================
+FINISHED
+====================================*/
 
-if(whatsappBtn){
+console.log(
+    "Brice Media Article:",
+    article ? article.title : "NOT FOUND"
+);
 
-whatsappBtn.href =
-`https://wa.me/?text=${article.title} ${pageUrl}`;
-
-}
-
-
-
-if(copyBtn){
-
-copyBtn.addEventListener("click",()=>{
-
-
-navigator.clipboard.writeText(pageUrl);
-
-
-alert("Link copied!");
-
-});
-
-
-}
+console.log(
+    "Detected Category:",
+    detectedCategory
+);
