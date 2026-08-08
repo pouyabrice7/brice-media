@@ -6,7 +6,24 @@ const params = new URLSearchParams(window.location.search);
 
 const articleId = Number(params.get("id"));
 
-const article = newsData.find(item => item.id === articleId);
+const allNews = [
+...newsData,
+...technologyNews,
+...footballNews,
+...sportsNews,
+...businessNews,
+...celebritiesNews,
+...aiNews,
+...hollywoodNews,
+...bollywoodNews,
+...worldNews,
+...cryptoNews,
+...scienceNews,
+...healthNews
+];
+
+
+const article = allNews.find(item => item.id === articleId);
 
 if(article){
 
