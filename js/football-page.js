@@ -1,3 +1,5 @@
+console.log("FOOTBALL PAGE JS LOADED");
+console.log(footballNews);
 const footballContainer = document.getElementById("football-container");
 
 
