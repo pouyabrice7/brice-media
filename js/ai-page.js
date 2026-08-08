@@ -1,7 +1,7 @@
 const aiContainer = document.getElementById("ai-container");
 
 
-if(aiContainer && typeof aiNews !== "undefined"){
+if(aiContainer){
 
 
 aiNews.forEach(news=>{
@@ -9,12 +9,15 @@ aiNews.forEach(news=>{
 
 aiContainer.innerHTML += `
 
+
 <div class="news-card">
+
 
 <img src="${news.image}" alt="${news.title}">
 
 
 <div class="news-content">
+
 
 <span>
 ${news.category}
@@ -50,9 +53,12 @@ Read More
 
 </div>
 
+
 </div>
 
+
 `;
+
 
 });
 
