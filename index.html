@@ -302,8 +302,89 @@ Latest News
 
 
 <script src="js/news.js"></script>
+
+<script src="js/football.js"></script>
+
 <script src="js/main.js"></script>
 
+<script>
+
+const footballHomeContainer =
+document.getElementById("football-home-container");
+
+if(footballHomeContainer && typeof footballNews !== "undefined"){
+
+footballNews.forEach(news => {
+
+footballHomeContainer.innerHTML += `
+
+<div class="news-card">
+
+<img
+src="${news.image.replace("../images/", "images/")}"
+alt="${news.title}"
+>
+
+<div class="news-content">
+
+<span>
+${news.category}
+</span>
+
+<h3>
+${news.title}
+</h3>
+
+<p>
+${news.description}
+</p>
+
+<small>
+📅 ${news.date}
+&nbsp;
+✍ ${news.author}
+&nbsp;
+👁 ${news.views}
+</small>
+
+<br><br>
+
+<a
+href="article.html?id=${news.id}"
+class="btn"
+>
+Read More
+</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+</script>
+  
+<!-- FOOTBALL NEWS -->
+
+<section class="latest-news">
+
+<div class="container">
+
+<h2>
+Football News
+</h2>
+
+<div class="news-grid" id="football-home-container">
+
+</div>
+
+</div>
+
+</section>
   <!--====================================
 FOOTER
 =====================================-->
